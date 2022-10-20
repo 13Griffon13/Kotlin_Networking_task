@@ -13,19 +13,20 @@ import com.example.kotlin_hw6_networking.services.NetworkService
 
 class MainActivity : AppCompatActivity() {
 
-    var networkService:NetworkService? = null
-    var networkServiceConnection:ServiceConnection? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        var networkServiceIntent = Intent(this, NetworkService::class.java)
-        startService(networkServiceIntent)
-
+//        var networkServiceIntent = Intent(this, NetworkService::class.java)
+//        startService(networkServiceIntent)
+        var fragmetn = RecyclerFragment()
         supportFragmentManager.beginTransaction().apply {
-            replace(R.id.fragmentContainerView, RecyclerFragment())
+            replace(R.id.fragmentContainerView, fragmetn)
+                //Log.d("ASD","--------------------------")
             commit()
+            //Log.d("ASD","++++++++++++++++++++")
         }
+       // Log.d("ASD","**********************")
     }
 }

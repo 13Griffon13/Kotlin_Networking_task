@@ -48,10 +48,10 @@ class NetworkService : Service() {
         //starting with OKhttp
         var httpThread = Thread(Runnable {
             Log.d("ASD", "okHttp thread start working")
-            var jsonResponse = getOkhttpRequest(urlString)
+            var jsonResponse = getOkhttpRequest(urlString+"3")
             Log.d("ASD", jsonResponse.toString())
 
-            var animal = gson.fromJson<List<Animal>>(jsonResponse, Animal::class.java)
+            var animal = gson.fromJson(jsonResponse, Array<Animal>::class.java)
             Log.d("ASD", animal.toString())
         })
 
