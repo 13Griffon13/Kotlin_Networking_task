@@ -9,6 +9,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.kotlin_hw6_networking.Animal
 import com.example.kotlin_hw6_networking.R
+import com.squareup.picasso.Picasso
 
 class AnimalAdapter() : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
@@ -50,17 +51,18 @@ class AnimalAdapter() : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
             habitat.text = "Habitat: ${animal.habitat}"
             activeTime.text = "Active time:${animal.activeTime}"
             geoRange.text = "Geo range is: ${animal.geoRange}"
-            //imageView
+            Picasso.with(view.context).load(animal.imageLink).into(imageView)
         }
     }
 
 
 
     fun addData(newAnimals:Array<Animal>){
-//        Log.d("ASD","---------------------------------------------")
-//        newAnimals.forEach {
-//            Log.d("ASD",it.name)
-//        }
+        Log.d("ASD","---------------------------------------------")
+        newAnimals.forEach {
+            Log.d("ASD",it.name)
+            Log.d("ASD",it.imageLink)
+        }
         animals.addAll(newAnimals)
     }
 
